@@ -9,5 +9,4 @@ public class YchApplication {
     public static void main(String[] args) {
         SpringApplication.run(YchApplication.class, args);
     }
-
 }
