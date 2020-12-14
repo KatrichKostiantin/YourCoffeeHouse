@@ -1,5 +1,6 @@
 package com.example.ych.services;
 
+import com.example.ych.RolesEnum;
 import com.example.ych.enteties.RoleEntity;
 import com.example.ych.enteties.UserEntity;
 import com.example.ych.repositories.UserRepository;
@@ -55,7 +56,7 @@ public class UserService implements UserDetailsService {
             return false;
         }
 
-        user.setRoles(Collections.singleton(new RoleEntity(1, "ROLE_USER")));
+        user.setRoles(Collections.singleton(new RoleEntity(RolesEnum.user.id, RolesEnum.user)));
         user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         userRepository.save(user);
         return true;

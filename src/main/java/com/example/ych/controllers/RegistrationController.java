@@ -32,15 +32,20 @@ public class RegistrationController {
         if (bindingResult.hasErrors()) {
             return "registration";
         }
+        if(userForm.getPassword().length() <= 8) {
+            model.addAttribute("info", "Password must be more than 8 characters");
+            return "registration";
+        }
+        if(userForm.getEmail())
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
-            model.addAttribute("passwordError", "Пароли не совпадают");
+            model.addAttribute("info", "Passwords do not match");
             return "registration";
         }
         if (!userService.saveUser(userForm)){
-            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
+            model.addAttribute("info", "A user with the same name already exists");
             return "registration";
         }
 
-        return "redirect:/";
+        return "redirect:/login";
     }
 }

@@ -32,6 +32,7 @@ public class UserEntity implements Serializable, UserDetails {
     private Integer id;
 
     @Column(name = "email")
+    @NotNull
     @Email(message = "Email in wrong format")
     @Size(max = 150, message = "Email can't be more that 150 characters")
     private String email;
@@ -39,13 +40,13 @@ public class UserEntity implements Serializable, UserDetails {
     @Transient
     private String passwordConfirm;
 
-    @Transient
     @NotNull(message = "error.user.password.null")
+    @Size(min = 8)
     private String password;
 
-    @Column(name = "pib")
-    @Size(max = 250, message = "errors.client.pib.size")
-    private String pib;
+    @Column(name = "name")
+    @Size(max = 250, message = "Max name error")
+    private String name;
 
     @Column(name = "description")
     private String description;

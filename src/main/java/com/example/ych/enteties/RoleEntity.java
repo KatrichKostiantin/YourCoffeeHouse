@@ -1,5 +1,6 @@
 package com.example.ych.enteties;
 
+import com.example.ych.RolesEnum;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -26,21 +27,21 @@ public class RoleEntity implements GrantedAuthority {
             generator = "role_id_seq")
     private Integer id;
 
-    @Size(min = 4, max = 20)
-    @Column(name = "name")
-    private String name;
+    @Column(name = "role")
+    @Enumerated(EnumType.STRING)
+    private RolesEnum role;
 
     @Transient
     @ManyToMany(mappedBy = "roles")
     private Set<UserEntity> clients;
 
-    public RoleEntity(Integer id, String name) {
+    public RoleEntity(Integer id, RolesEnum role) {
         this.id = id;
-        this.name = name;
+        this.role = role;
     }
 
     @Override
     public String getAuthority() {
-        return getName();
+        return getRole().name;
     }
 }
