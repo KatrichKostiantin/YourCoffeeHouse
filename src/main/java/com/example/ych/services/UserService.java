@@ -30,7 +30,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserEntity user = userRepository.findByUsername(username);
+        UserEntity user = userRepository.findByEmail(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("User not found");
@@ -49,7 +49,7 @@ public class UserService implements UserDetailsService {
     }
 
     public boolean saveUser(UserEntity user) {
-        UserEntity userFromDB = userRepository.findByUsername(user.getUsername());
+        UserEntity userFromDB = userRepository.findByEmail(user.getUsername());
 
         if (userFromDB != null) {
             return false;

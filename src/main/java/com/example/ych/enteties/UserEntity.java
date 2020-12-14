@@ -36,8 +36,8 @@ public class UserEntity implements Serializable, UserDetails {
     @Size(max = 150, message = "Email can't be more that 150 characters")
     private String email;
 
-    @Column(name = "password_hash")
-    private byte[] passwordHash;
+    @Transient
+    private String passwordConfirm;
 
     @Transient
     @NotNull(message = "error.user.password.null")
