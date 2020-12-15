@@ -7,7 +7,6 @@
 <head>
     <title>Registration</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
 </head>
 <body style="margin: 0; height: 100%">
 
@@ -61,7 +60,7 @@
             <div style="width: 100%; margin-top: 10px">
                 <a style="background: #7A4F38; font-size: 20px; color: #e2d9ce; border-radius: 5px; width: 70%;
                  height: 30px; padding-top: 5px;
-                     display: inline-block; text-decoration:none; font-family: sans-serif;" href="/login">Log in</a>
+                     display: inline-block; text-decoration:none; font-family: sans-serif;" href="${pageContext.request.contextPath}/login">Log in</a>
             </div>
 
         </div>

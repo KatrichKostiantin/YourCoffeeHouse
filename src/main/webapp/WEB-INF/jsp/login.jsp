@@ -7,7 +7,7 @@
 <head>
     <title>Log in</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
-    <link rel="stylesheet" type="text/css" href="${contextPath}/resources/css/style.css">
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
 <body style="margin: 0; height: 100%">
 
@@ -33,9 +33,7 @@
                 </div>
                 <div>
                     <p style="color: #7A4F38; font-weight: bold; font-size: 20px;">Password</p>
-                    <input style="width: 80%; height: 30px; border-radius: 2px; padding-left: 10px;
-                background: #fde7dc; border: 1px solid saddlebrown;"
-                           name="password" type="password" placeholder="Password"/>
+                    <input name="password" type="password" placeholder="Password"/>
                 </div>
                 <div style="width: 100%; margin-top: 10px">
                     <button style="background: #7A4F38; font-size: 20px; color: #e2d9ce; width: 70%; border-radius: 5px;

@@ -36,7 +36,7 @@ public class RegistrationController {
             model.addAttribute("info", "Password must be more than 8 characters");
             return "registration";
         }
-        if(userForm.getEmail())
+
         if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
             model.addAttribute("info", "Passwords do not match");
             return "registration";
