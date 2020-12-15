@@ -1,6 +1,8 @@
 package com.example.ych.controllers;
 
+import com.example.ych.enteties.CafeEntity;
 import com.example.ych.enteties.UserEntity;
+import com.example.ych.repositories.CafeRepository;
 import com.example.ych.services.UserService;
 import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,6 +21,9 @@ public class RegistrationController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private CafeRepository cafeRepository;
+
         @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new UserEntity());
@@ -28,7 +33,12 @@ public class RegistrationController {
 
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("userForm") @Valid UserEntity userForm, BindingResult bindingResult, Model model) {
-
+        CafeEntity cafeEntity = new CafeEntity();
+        cafeEntity.setName("Random name");
+        cafeEntity.setOpenHours(8);
+        cafeEntity.setCloseHours(20);
+        cafeEntity.setDescription("Aaoaoaoaoao");
+        cafeRepository.save(cafeEntity);
         if (bindingResult.hasErrors()) {
             return "registration";
         }

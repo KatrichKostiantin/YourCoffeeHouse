@@ -9,10 +9,10 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
-<body style="margin: 0; height: 100%">
+<body>
 
-<div style="width: 100%;    top: 0;    height: 50px;    position: fixed;    background: #7A4F38;    z-index: 5;    color: white;">
-    <p style="font-size: 35px; width: 400px;height: 100%; color: #e2d9ce; float: left; text-align: center; font-weight: bold; margin: 0">
+<div class="header">
+    <p class="header_p">
         Your Coffee House
     </p>
 </div>
@@ -23,22 +23,19 @@
         <div style="width: 100%; height: 10%;  border-top-left-radius: 25px; border-top-right-radius: 25px;
                     text-align: center"><p>${info}</p></div>
         <div style="width: 100%; height: 90%;text-align: center">
-            <form method="POST" action="/login">
+            <form method="POST" action="/login" onclick="this">
                 <p style="color: #7A4F38; font-weight: bold; font-size: 30px; margin: 0">Log in</p>
                 <div style="">
                     <p style="color: #7A4F38; font-weight: bold; font-size: 20px;">Email</p>
-                    <input style="width: 80%; height: 30px; border-radius: 2px; padding-left: 10px;
-                 background: #fde7dc; border: 1px solid saddlebrown;"
+                    <input class="welcome_input"
                            name="username" type="text" placeholder="Email" autofocus="true"/>
                 </div>
                 <div>
                     <p style="color: #7A4F38; font-weight: bold; font-size: 20px;">Password</p>
-                    <input name="password" type="password" placeholder="Password"/>
+                    <input class="welcome_input" name="password" type="password" placeholder="Password"/>
                 </div>
                 <div style="width: 100%; margin-top: 10px">
-                    <button style="background: #7A4F38; font-size: 20px; color: #e2d9ce; width: 70%; border-radius: 5px;
-                height: 30px;
-                display: inline-block; font-family: sans-serif;" type="submit">Enter
+                    <button class="bt" type="submit">Enter
                     </button>
                 </div>
             </form>
@@ -52,7 +49,7 @@
     </div>
 </div>
 
-<div style="width: 100%;    bottom: 0;    height: 50px;    position: fixed;    background: #7A4F38;    z-index: 5;    color: white;">
+<div class="footer">
 </div>
 </body>
 </html>

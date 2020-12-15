@@ -5,25 +5,48 @@
 <head>
     <title>Log in</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css" />">
 </head>
 <body style="margin: 0; height: 100%">
 
 
-<div style="width: 100%;    top: 0;    height: 50px;    float: top;    background: #7A4F38;    z-index: 5;    color: white;">
-    <p style="font-size: 35px; width: 400px;height: 100%; color: #e2d9ce; float: left; text-align: center; font-weight: bold; margin: 0">
+<div class="header">
+    <p class="header_p">
         Your Coffee House
     </p>
 </div>
 
 <div style="width: 100%; height: auto">
-    <div></div>
-    <button onclick="getLocation()">Try It</button>
-    <p id="demo"></p>
-    <img src="<c:url value="/images/a.jpg" />" alt="image" />
+    <div id="left_menu">
+        <div id="header_menu">
+            <p class="header_p">
+                Your Coffee House
+            </p>
+            <form:form method="POST" modelAttribute="searchCafeForm">
+                <button type="submit">Search</button>
+            </form:form>
+        </div>
+    </div>
+    <div id="table">
+        <c:forEach items="${allCard}" var="card">
+            <div class="cafe_card">
+                <div class="card_image">
+                    <img src="<c:url value="/images/${card.getImageUrl()}"/>">
+                </div>
+                <div class="card_info">
+                    <p class="card_name">${card.getName()}</p>
+                    <div></div>
+                    <p>open at ${card.getOpenHours()}</p>
+                    <p>close at ${card.getCloseHours()}</p>
+                    <p>description:${card.getDescription()}</p>
+                </div>
+            </div>
+        </c:forEach>
+    </div>
+    <div id="footer_menu"></div>
 </div>
 
-<div style="width: 100%;        height: 50px;     position: fixed; left: 0; bottom: 0; padding: 10px;
-            background: #7A4F38;    z-index: 5;    color: white;"></div>
+<div class="footer"></div>
 
 <script>
     var x = document.getElementById("demo");
