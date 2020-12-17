@@ -30,7 +30,7 @@
                 <div style="width: 100%">
                     <p style="color: #7A4F38; font-weight: bold; font-size: 15px;">Name</p>
                     <form:input class="welcome_input"
-                                path="name" type="text" placeholder="Name" autofocus="true"/>
+                                path="name" type="email" placeholder="Name" autofocus="true"/>
                 </div>
                 <div style="">
                     <p style="color: #7A4F38; font-weight: bold; font-size: 15px;">Email</p>

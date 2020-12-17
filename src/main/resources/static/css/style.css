@@ -14,7 +14,7 @@
     height: 50px;
     position: absolute;
     background: #7A4F38;
-    z-index: 5;
+    z-index: 1;
 }
 
 .header_p {
@@ -41,7 +41,7 @@
     bottom: 0;
     height: 50px;
     background: #7A4F38;
-    z-index: 5;
+    z-index: 3;
     color: white;
     clear: both;
     position: relative;
@@ -52,16 +52,17 @@
     position: fixed;
     width: 310px;
     height: 100%;
-    z-index: 3;
+    z-index: 2;
     top: 0;
     left: 0;
     box-shadow: 0 0 15px 0 rgba(0, 0, 0, 0.6);
     border-radius: 5px;
     padding-bottom: 50px;
+    padding-top: 50px;
 }
 
-#footer_menu{
-    position:absolute;
+#footer_menu {
+    position: absolute;
     width: 100%;
     bottom: 0;
     height: 50px;
@@ -70,33 +71,96 @@
 
 #table {
     width: auto;
-    overflow: auto;
-    min-height: 650px;
+    min-height: 621px;
     margin-left: 310px;
     margin-top: 50px;
     background: white;
     display: block;
 }
 
+#search_div {
+    text-align: center;
+    padding: 5px;
+    height: 100%;
+}
+
+#location {
+    display: none;
+}
+
+#logout {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    width: 150px;
+    color: #7A4F38;
+    font-size: 25px;
+    background: #e2d9ce;
+    border-radius: 5px;
+    height: 30px;
+    display: inline-block;
+    font-family: sans-serif;
+}
+
+#search {
+    position: absolute;
+    bottom: 60px;
+    width: 110px;
+    left: 100px;
+    color: #e2d9ce;
+    font-size: 25px;
+    background: #7A4F38;
+    border-radius: 5px;
+    height: 30px;
+    display: inline-block;
+    font-family: sans-serif;
+    z-index: 3;
+}
+
+#div_price{
+
+}
+
 .cafe_card {
-    margin: 10px;
+    margin: 10px 4%;
     float: left;
-    width: 30%;
+    width: 25%;
     height: 350px;
     border-radius: 20px;
     border: 2px solid saddlebrown;
     background: white;
-    padding: 5px;
 }
 
-.card_image{
-    width: 100%;
-    height: 50%;
+.card_name {
+    height: 20%;
+    margin: 0;
 }
 
-.card_info{
+.card_description {
+    height: 80%;
+    font-size: 15px;
+    color: #878787;
+    margin: 0;
+    white-space: pre-line;
+}
+
+.card_img {
     width: 100%;
     height: 50%;
+    border-radius: 20px 20px 0 0;
+}
+
+img {
+    max-height: 100%;
+    max-width: 100%;
+    height: auto;
+}
+
+.card_info {
+    width: 100%;
+    height: 50%;
+    font-size: 20px;
+    padding-left: 15px;
 }
 
 .bt {
@@ -108,6 +172,10 @@
     height: 30px;
     display: inline-block;
     font-family: sans-serif;
+}
+
+.p {
+    margin: 0;
 }
 
 div {

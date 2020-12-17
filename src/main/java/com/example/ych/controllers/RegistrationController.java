@@ -4,7 +4,6 @@ import com.example.ych.enteties.CafeEntity;
 import com.example.ych.enteties.UserEntity;
 import com.example.ych.repositories.CafeRepository;
 import com.example.ych.services.UserService;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,7 +23,7 @@ public class RegistrationController {
     @Autowired
     private CafeRepository cafeRepository;
 
-        @GetMapping("/registration")
+    @GetMapping("/registration")
     public String registration(Model model) {
         model.addAttribute("userForm", new UserEntity());
 
@@ -34,24 +33,30 @@ public class RegistrationController {
     @PostMapping("/registration")
     public String addUser(@ModelAttribute("userForm") @Valid UserEntity userForm, BindingResult bindingResult, Model model) {
         CafeEntity cafeEntity = new CafeEntity();
-        cafeEntity.setName("Random name");
+        cafeEntity.setName("");
         cafeEntity.setOpenHours(8);
-        cafeEntity.setCloseHours(20);
-        cafeEntity.setDescription("Aaoaoaoaoao");
-        cafeRepository.save(cafeEntity);
+        cafeEntity.setCloseHours(22);
+        cafeEntity.setImageUrl("1.jpg");
+        cafeEntity.setPrice("average");
+        double[] legacy = {50.496995864530604, 30.46450115533066};
+        cafeEntity.setLegacy(legacy);
+        String[] att = {"delivery"};
+        cafeEntity.setAttributes(att);
+        cafeEntity.setDescription("Nice place");
+        cafeRepository.saveCafe(cafeEntity);
         if (bindingResult.hasErrors()) {
             return "registration";
         }
-        if(userForm.getPassword().length() <= 8) {
+        if (userForm.getPassword().length() <= 8) {
             model.addAttribute("info", "Password must be more than 8 characters");
             return "registration";
         }
 
-        if (!userForm.getPassword().equals(userForm.getPasswordConfirm())){
+        if (!userForm.getPassword().equals(userForm.getPasswordConfirm())) {
             model.addAttribute("info", "Passwords do not match");
             return "registration";
         }
-        if (!userService.saveUser(userForm)){
+        if (!userService.saveUser(userForm)) {
             model.addAttribute("info", "A user with the same name already exists");
             return "registration";
         }

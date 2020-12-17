@@ -1,15 +1,37 @@
 package com.example.ych.repositories;
 
 import com.example.ych.enteties.CafeEntity;
-import org.springframework.data.geo.Distance;
-import org.springframework.data.mongodb.repository.MongoRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
+import org.springframework.data.mongodb.core.index.GeospatialIndex;
+import org.springframework.data.mongodb.core.query.Criteria;
+import org.springframework.data.mongodb.core.query.Query;
+import org.springframework.stereotype.Repository;
 
-import java.awt.*;
 import java.util.List;
-import java.util.Optional;
 
-public interface CafeRepository extends MongoRepository<CafeEntity, String> {
-    public Optional<CafeEntity> findById(String id);
-    public List<CafeEntity> findAll();
-    public List<CafeEntity> findByLocationNear(Point point, Distance distance);
+@Repository
+public class CafeRepository {
+    private final MongoTemplate mongoTemplate;
+
+    @Autowired
+    public CafeRepository(MongoTemplate mongoTemplate) {
+        this.mongoTemplate = mongoTemplate;
+    }
+
+    public CafeEntity saveCafe(CafeEntity person) {
+        mongoTemplate.save(person);
+        return person;
+    }
+
+    public List<CafeEntity> getAllCafes() {
+        return mongoTemplate.findAll(CafeEntity.class);
+    }
+
+    public List<CafeEntity> getAllCafesByCriteria(Criteria criteria) {
+        Query query = new Query();
+        query.addCriteria(criteria);
+        List<CafeEntity> list =  mongoTemplate.find(query, CafeEntity.class);
+        return list;
+    }
 }

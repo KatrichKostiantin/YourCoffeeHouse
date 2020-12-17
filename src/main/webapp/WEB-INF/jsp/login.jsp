@@ -28,7 +28,7 @@
                 <div style="">
                     <p style="color: #7A4F38; font-weight: bold; font-size: 20px;">Email</p>
                     <input class="welcome_input"
-                           name="username" type="text" placeholder="Email" autofocus="true"/>
+                           name="username" type="email" placeholder="Email" autofocus="true"/>
                 </div>
                 <div>
                     <p style="color: #7A4F38; font-weight: bold; font-size: 20px;">Password</p>
